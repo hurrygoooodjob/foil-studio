@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111116">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171620'/%3E%3Cpath d='m18 2 2 10 9 4-10 4-4 10-2-10-10-4 11-4z' fill='%23cfb8ff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="board.css">
+  <link rel="stylesheet" href="stickers.css">
+  <title>复古小卡工坊 · Foil Studio</title>
+  <script src="portrait.js" defer></script>
+  <script src="stars.js" defer></script>
+  <script src="card.js" defer></script>
+  <script src="collage-card.js" defer></script>
+  <script src="denim-card.js" defer></script>
+  <script src="style-frames.js" defer></script>
+  <script src="card-materials.js" defer></script>
+  <script src="sticker-fx.js" defer></script>
+  <script src="sticker-cutout.js" defer></script>
+  <script src="stickers.js" defer></script>
+  <script src="frames.js" defer></script>
+  <script src="dissolve.js" defer></script>
+  <script src="loop-scene.js" defer></script>
+  <script src="loop-encoder.js" defer></script>
+  <script src="loop-dialog.js" defer></script>
+  <script src="board.js" defer></script>
+  <script src="studio.js" defer></script>
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16m10-16v16M3 9h4m-4 6h4m10-6h4m-4 6h4"/></symbol>
+    <symbol id="i-dust" viewBox="0 0 24 24"><path d="M12 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h6m0-15 1 3-2 3 2 2-2 3 1 4"/><path d="m16 8 1 .6m-1 5 1.2.4m.8 4.3.8.3m1.6-12.8.8.4m-.3 4.2.5.2"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-5 5 5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-move" viewBox="0 0 24 24"><path d="M3 12h18M12 3v18M6 9l-3 3 3 3m12-6 3 3-3 3M9 6l3-3 3 3m-6 12 3 3 3-3"/></symbol>
+    <symbol id="i-tilt" viewBox="0 0 24 24"><path d="m7 5 9-2 3 14-9 2zM5 15c-2-.6-3-1.6-2.7-2.7.2-1 1.5-2.2 3.2-3m13.5-1c1.7.4 2.7 1.2 2.8 2.1.2 2.5-4.4 5.4-10.1 6.9M5 12v3l-3.1.6"/></symbol>
+    <symbol id="i-shake" viewBox="0 0 24 24"><path d="m10 6 5-1.5a1 1 0 0 1 1.3.7l3 10.6a1 1 0 0 1-.7 1.2l-5 1.5a1 1 0 0 1-1.3-.7L9.3 7.2A1 1 0 0 1 10 6ZM6 6a11 11 0 0 0 1 12M3 5c-2 5-1.6 10 1.5 15M19 3a12 12 0 0 1 3 7"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 5v5h5M3.6 10a8.5 8.5 0 1 1 .7 6"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h5m5 0h6M4 17h10m5 0h1"/><circle cx="11.5" cy="7" r="2.5"/><circle cx="16.5" cy="17" r="2.5"/></symbol>
+    <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m5 3 13 10-7 .9-2.2 6.5z"/></symbol>
+    <symbol id="i-glint" viewBox="0 0 24 24"><path d="m12 2 2.3 7.5L21 12l-6.7 2.5L12 22l-2.3-7.5L3 12l6.7-2.5z"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8.5 12.2V6.8a1.6 1.6 0 0 1 3.2 0v4.1-6.3a1.6 1.6 0 0 1 3.2 0v6.3-4.7a1.6 1.6 0 0 1 3.2 0v5.5-3a1.55 1.55 0 0 1 3.1 0v5.5c0 4.6-2.5 7-6.8 7h-.7c-2.2 0-4-1-5.4-2.9l-4.2-5.5a1.7 1.7 0 0 1 2.4-2.3z"/></symbol>
+    <symbol id="i-sticker" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7.2L13.2 20H6a2 2 0 0 1-2-2z"/><path d="M13 20v-5a2 2 0 0 1 2-2h5"/></symbol>
+    <symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 3v13a2 2 0 0 0 2 2h13M3 6h13a2 2 0 0 1 2 2v13"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m8 0h4v-4"/><rect x="9" y="8" width="6" height="8" rx=".8"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14m-7-7v14"/></symbol>
+    <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m4 16 5-5 4 4 3-3 4 4"/><circle cx="15" cy="8" r="1"/></symbol>
+  </defs></svg>
+  <header class="masthead"><div class="mast-inner">
+    <div class="brand float"><span class="brand-crystal" aria-hidden="true"><i></i></span><span class="brand-type"><span class="wordmark">FOIL<span>STUDIO</span></span><span class="brand-sub">镭射卡片工坊</span></span></div>
+    <div class="export-actions float">
+      <button class="save-btn still-btn" id="save"><svg aria-hidden="true"><use href="#i-save"/></svg><span>保存卡面</span></button>
+      <button class="save-btn movie-btn" id="exportVideo" aria-haspopup="dialog" disabled><svg aria-hidden="true"><use href="#i-film"/></svg><span id="videoAction">导出循环视频</span></button>
+    </div>
+  </div></header>
+  <main class="board-shell" id="boardShell" aria-label="无限画布">
+    <section class="preview" id="preview" aria-label="互动卡片预览">
+      <div id="boardViewport" class="board-viewport" aria-label="画布视口">
+        <div class="ambient" aria-hidden="true"></div>
+        <div id="boardOrigin" class="board-origin">
+          <div id="boardWorld" class="board-world">
+            <div class="work-plane" id="plane">
+              <div class="floor-shadow" aria-hidden="true"></div>
+              <div class="card-anchor" id="surface" tabindex="0" role="group" aria-label="卡片。拖动试光，方向键倾斜。">
+                <div class="card-object" id="cardObject"><canvas id="card" width="720" height="1000" aria-label="自定义照片银铬典藏卡"></canvas></div>
+                <canvas id="dustLayer" width="720" height="960" aria-label="整张卡片的粒子消散预览" hidden></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board-caption"><h1 id="designName">银铬典藏卡</h1><span class="live"><i></i><span id="previewStatus" role="status">实时预览</span></span></div>
+      <div class="tool-rail float" role="group" aria-label="画布工具">
+        <button id="tiltMode" class="tool" aria-pressed="true" aria-label="拖动试光" title="拖动试光"><svg><use href="#i-tilt"/></svg></button>
+        <button id="handMode" class="tool" aria-pressed="false" aria-label="平移画布" title="平移画布（按住空格）"><svg><use href="#i-hand"/></svg></button>
+        <button id="cropMode" class="tool" aria-pressed="false" aria-label="调整照片" title="调整照片"><svg><use href="#i-crop"/></svg></button>
+        <button id="stickerMode" class="tool" aria-pressed="false" aria-label="编辑贴纸" title="编辑贴纸"><svg><use href="#i-sticker"/></svg></button>
+        <span class="rule"></span>
+        <button id="quickPhoto" class="tool" aria-label="上传照片" title="上传照片"><svg><use href="#i-img"/></svg></button>
+        <button id="expand" class="tool" aria-label="专注预览" title="专注预览" aria-pressed="false"><svg><use href="#i-full"/></svg></button>
+      </div>
+      <div class="stage-controls">
+        <div id="cropControls" class="crop-controls float" hidden>
+          <label for="zoom">照片缩放</label><input id="zoom" style="--fill:0%" type="range" min="100" max="200" value="100" aria-label="照片缩放"><output id="zoomValue" for="zoom">1.00×</output>
+        </div>
+        <div class="motion-dock float" role="group" aria-label="卡片动效">
+          <button id="dissolve" class="dust-btn" disabled><svg aria-hidden="true"><use href="#i-dust"/></svg><span>粒子消散</span></button>
+          <button type="button" id="restoreCard" class="restore-btn" hidden>还原卡片</button>
+          <button id="shake" class="dock-btn" title="让夹层装饰弹起"><svg aria-hidden="true"><use href="#i-shake"/></svg><span>摇一摇</span></button>
+          <span class="rule"></span>
+          <button id="center" class="tool" aria-label="卡片回正" title="卡片回正"><svg><use href="#i-reset"/></svg></button>
+        </div>
+      </div>
+      <div class="zoom-dock float" role="group" aria-label="画布缩放">
+        <button id="boardZoomOut" class="tool" aria-label="缩小画布" title="缩小画布"><svg><use href="#i-minus"/></svg></button>
+        <output id="boardZoomValue" aria-label="当前画布缩放">100%</output>
+        <button id="boardZoomIn" class="tool" aria-label="放大画布" title="放大画布"><svg><use href="#i-plus"/></svg></button>
+        <span class="rule"></span>
+        <button id="boardFit" class="tool" aria-label="找回卡片" title="找回卡片并恢复适应尺寸"><svg><use href="#i-fit"/></svg></button>
+      </div>
+      <span class="visually-hidden" id="hint">拖动卡片试光，滚轮缩放画布。拖动空白处平移画布。</span>
+    </section>
+    <button id="inspectorOpen" class="inspector-open float" aria-label="打开卡片设置" aria-controls="inspector" hidden><svg><use href="#i-settings"/></svg><span>设置</span></button>
+    <aside id="inspector" class="control-panel float" aria-label="卡片设置">
+      <div class="panel-title"><h2>卡片设置</h2><button id="inspectorClose" class="tool" aria-label="收起设置面板" title="收起设置面板"><svg><use href="#i-panel"/></svg></button></div>
+      <div class="panel-tabs" role="tablist" aria-label="卡片设置分类">
+        <button role="tab" id="tab-frames" aria-selected="true" aria-controls="panel-frames">卡框</button>
+        <button role="tab" id="tab-stickers" aria-selected="false" aria-controls="panel-stickers" tabindex="-1">贴纸</button>
+        <button role="tab" id="tab-photo" aria-selected="false" aria-controls="panel-photo" tabindex="-1">卡面</button>
+      </div>
+      <div class="panel-body">
+        <section role="tabpanel" id="panel-frames" aria-labelledby="tab-frames">
+          <div id="frameChoices" class="frame-choices" role="group" aria-label="选择卡框">
+            <h3 class="frame-family classic-family">经典卡框</h3><h3 class="frame-family generated-family">随图生成</h3>
+          </div>
+          <div class="control-section reference-section"><div class="section-title"><h3>原图风格</h3><div id="styleSwatches" aria-label="提取的配色"></div></div>
+            <p id="styleDescription">从卡面照片提取配色与纹理</p>
+            <input id="styleReference" type="file" hidden accept="image/*">
+            <div class="reference-actions"><button id="uploadReference" type="button"><svg aria-hidden="true"><use href="#i-img"/></svg>上传参考图</button><button id="usePhotoStyle" type="button">使用卡面照片</button></div>
+          </div>
+        </section>
+        <section role="tabpanel" id="panel-stickers" aria-labelledby="tab-stickers" hidden>
+          <div id="stickerPanel"></div>
+        </section>
+        <section role="tabpanel" id="panel-photo" aria-labelledby="tab-photo" hidden>
+          <section class="control-section photo-section">
+            <h3>卡面照片</h3><input id="file" type="file" hidden accept="image/*">
+            <button id="upload" class="upload"><span class="thumb"><img id="thumb" alt=""></span><span class="upload-copy"><strong>上传照片 <svg aria-hidden="true"><use href="#i-upload"/></svg></strong><small>选择或拖入图片</small></span></button>
+          </section>
+          <section class="control-section"><h3>卡面信息</h3><div class="text-fields">
+            <label for="name">卡面名称<input type="text" id="name" value="ASTRA" maxlength="24" spellcheck="false" autocomplete="off"></label>
+            <label for="serial">收藏编号<input type="text" id="serial" value="001" maxlength="8" spellcheck="false" autocomplete="off"></label>
+          </div></section>
+          <section class="control-section finish-section"><div class="finish-heading"><h3>卡片材质</h3>
+            <label class="particle-toggle"><input id="particlesEnabled" type="checkbox" checked>显示夹层装饰</label></div>
+            <div class="material-picker"><label for="cardMaterial">卡片表面</label><select id="cardMaterial">
+              <option value="original">原版印刷</option><option value="translucent">半透明薄膜</option>
+              <option value="acrylic">抛光亚克力</option><option value="frosted">磨砂透光</option>
+            </select></div>
+            <div id="surfaceFinishControls" class="range-row" hidden><div class="range-label"><label for="materialStrength">材质强度</label><output id="materialStrengthValue" for="materialStrength">75%</output></div><input id="materialStrength" type="range" min="0" max="100" value="75"></div>
+            <div class="range-row"><div class="range-label"><label for="light">镭射强度</label><output id="lightValue" for="light">75%</output></div><input id="light" style="--fill:75%" type="range" min="0" max="100" value="75"></div>
+            <div class="range-row"><div class="range-label"><label id="particleLabel" for="count">银箔星片</label><output id="countValue" for="count">18 枚</output></div><input id="count" style="--fill:50%" type="range" min="0" max="36" value="18"></div>
+          </section>
+          <div class="material-sample"><div class="foil-chip" aria-hidden="true"></div><div><strong id="stockName">银铬镭射箔</strong><small id="stockEn">CHROME HOLOFOIL</small></div></div>
+        </section>
+      </div>
+    </aside>
+  </main>
+  <dialog id="loopDialog" class="movie-dialog" aria-labelledby="movieTitle">
+    <div class="movie-head">
+      <div><h2 id="movieTitle">4 秒循环视频</h2><p>720 × 960 <span>·</span> 30 FPS</p></div>
+      <button type="button" id="closeVideo" class="icon-btn" aria-label="关闭视频窗口" title="关闭"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div id="movieStage" class="movie-stage">
+      <video id="loopPlayer" controls loop muted playsinline hidden aria-label="银铬卡片四秒循环成片"></video>
+    </div>
+    <div class="movie-footer">
+      <div class="movie-status">
+        <p id="movieStatus" role="status"></p>
+        <progress id="movieProgress" aria-label="视频生成进度" max="1" value="0"></progress>
+      </div>
+      <a id="downloadVideo" class="save-btn movie-btn" hidden><svg aria-hidden="true"><use href="#i-save"/></svg><span>保存视频</span></a>
+      <button type="button" id="retryVideo" class="save-btn" hidden>重新生成</button>
+    </div>
+  </dialog>
+  <div id="status" role="status" class="toast" aria-live="polite"></div>
+</body></html>

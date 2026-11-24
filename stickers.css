@@ -1,0 +1,47 @@
+.sticker-editor{display:grid;gap:10px;min-width:0}
+.sticker-editor button,.sticker-editor input{font:inherit}
+.sticker-upload{display:flex;justify-content:center;align-items:center;gap:9px;min-height:52px;width:100%;padding:8px 10px;text-align:left;font-size:13px!important;font-weight:600!important;border:1px dashed #746186;border-radius:8px;background:#302936;color:#f0e7fa}
+.sticker-upload small{display:block;color:#bcb2c7;font-size:10px;font-weight:400;line-height:1.5;margin-top:2px}
+.sticker-upload svg{width:16px;height:16px}
+.sticker-upload:is(:hover,.over){background:#47394f;border-color:#c6a5e1}
+.sticker-layers{display:grid;gap:3px;max-height:126px;overflow:auto}
+.sticker-layers button{display:flex;align-items:center;gap:8px;width:100%;padding:3px 7px;min-height:30px;border:1px solid transparent;border-radius:5px;background:#252228;color:#c8c1d0;text-align:left;font-size:12px}
+.sticker-layers button[aria-pressed=true]{background:#39303f;color:#f1e6f9;border-color:#756580}
+.sticker-layers img{flex:none;width:24px;height:24px;object-fit:contain;border-radius:3px;background:repeating-conic-gradient(#554e5a 0 25%,#39353e 0 50%) 0 0/8px 8px}
+.sticker-layers span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticker-properties{display:grid;gap:9px;min-width:0}
+.sticker-name,.sticker-range{display:grid;align-items:center;gap:8px;color:var(--muted,#afa6b7);font-size:12px}
+.sticker-name{grid-template-columns:auto minmax(0,1fr)}
+.sticker-name input{width:100%;min-width:0;border:1px solid #4b4452;border-radius:4px;background:#211e25;color:#e9e4ee;padding:4px 6px}
+.sticker-range{grid-template-columns:34px minmax(0,1fr) 39px}
+.sticker-range input{margin:0!important;min-width:0}
+.sticker-range output{text-align:right;font:11px Menlo,monospace;color:#dfd7e6}
+.sticker-order{display:flex;gap:4px}
+.sticker-order button{flex:1;background:#29252e;padding:5px 0;min-height:26px;border:1px solid #514957;border-radius:4px;color:#ded6e4;font-size:11px}
+.sticker-order button:hover:enabled{border-color:#ad96bb}
+.sticker-order button:disabled{cursor:default;opacity:.4}
+#stickerRemove{margin-left:auto;flex:.7;color:#e6babd}
+.sticker-outline{display:none;position:absolute;box-sizing:border-box;border:1px solid #dcb4ff;outline:1px solid #312737;pointer-events:none;z-index:1}
+.sticker-outline::before,.sticker-outline::after{content:"";position:absolute;width:5px;height:5px;background:#f1dfff;box-shadow:0 0 0 1px #5a426e}
+.sticker-outline::before{left:-3px;top:-3px}.sticker-outline::after{right:-3px;bottom:-3px}
+[data-tool=sticker]>.sticker-outline:not([hidden]){display:block}
+.preview[data-dust] [data-tool=sticker]>.sticker-outline{display:none}
+[data-tool=sticker]{cursor:move}
+.sticker-styles{display:grid;gap:9px;margin-top:3px;padding-top:12px;border-top:1px solid #423c49}
+.sticker-styles h3{font-size:13px;color:#ede8f2}
+.sticker-blend,.sticker-effect-head,.sticker-effect-head label,.sticker-cutout{display:flex;align-items:center}
+.sticker-blend{justify-content:space-between;gap:8px;color:#c7bfce;font-size:12px}
+.sticker-blend select{color-scheme:dark;width:min(62%,156px);min-height:28px;padding:2px 6px;background:#28242e;color:#eee7f5;border:1px solid #514857;border-radius:5px;font:inherit}
+.sticker-styles .sticker-range{grid-template-columns:52px minmax(0,1fr) 41px;font-size:11px}
+.sticker-effect{background:#2a252f;border:1px solid #443c4a;border-radius:7px;padding:2px 8px}
+.sticker-effect-head{justify-content:space-between;min-height:29px;gap:6px}
+.sticker-effect-head label,.sticker-cutout{font-size:12px;gap:7px;cursor:pointer;color:#e2dbe8}
+.sticker-effect-head label{flex:1;min-height:28px}
+.sticker-cutout{justify-self:start;min-height:26px}
+.sticker-editor input[type="checkbox"]{appearance:auto;width:14px;height:14px;margin:0;accent-color:#cbb0ef;cursor:pointer}
+.sticker-effect-head input[type="color"]{background:#241f29;border:1px solid #66596e;padding:2px;width:30px;height:21px;border-radius:4px;cursor:pointer}
+.sticker-effect-head input[type="color"]::-webkit-color-swatch-wrapper{padding:0}
+.sticker-effect-head input[type="color"]::-webkit-color-swatch{border:0;border-radius:2px}
+.sticker-effect-head input[type="color"]:disabled{opacity:.4;cursor:default}
+.sticker-effect-controls:not([hidden]){display:grid;gap:4px;padding:3px 0 5px}
+.sticker-styles select:focus-visible{outline:2px solid var(--lilac);outline-offset:2px}
